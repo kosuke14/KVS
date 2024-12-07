@@ -22,6 +22,9 @@ read_kernver(){
     "3")
       cat /mnt/state/kvs/kernver3
       ;;
+    "4")
+      cat /mnt/state/kvs/kernver4
+      ;;
     "*")
       panic "invalid-kernver"
       ;;

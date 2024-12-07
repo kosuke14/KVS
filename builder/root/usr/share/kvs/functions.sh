@@ -94,7 +94,7 @@ stopwatch() {
 selection(){
   case $1 in
     "1")
-      echo "Please Enter Target kernver (0-3)"
+      echo "Please Enter Target kernver (0-4)"
       read -rep "> " kernver
       case $kernver in
         "0")
@@ -122,6 +122,13 @@ selection(){
         "3")
           echo "Setting kernver 3"
           write_kernver $(cat /mnt/state/kvs/kernver3)
+          echo "Finished writing kernver $kernver!"
+          echo "Press ENTER to return to main menu.."
+          read -r
+          ;;
+        "4")
+          echo "Setting kernver 4"
+          write_kernver $(cat /mnt/state/kvs/kernver4)
           echo "Finished writing kernver $kernver!"
           echo "Press ENTER to return to main menu.."
           read -r
@@ -161,6 +168,14 @@ selection(){
           echo "Current kernver: 3"
           echo "Outputting to stateful/kernver-out"
           cp /mnt/state/kvs/raw/kernver3.raw /mnt/state/kernver-out
+          echo "Finished saving kernver $kernver!"
+          echo "Press ENTER to return to main menu.."
+          read -r
+          ;;
+        "4")
+          echo "Current kernver: 4"
+          echo "Outputting to stateful/kernver-out"
+          cp /mnt/state/kvs/raw/kernver4.raw /mnt/state/kernver-out
           echo "Finished saving kernver $kernver!"
           echo "Press ENTER to return to main menu.."
           read -r
